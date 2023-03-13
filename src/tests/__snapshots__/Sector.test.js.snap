@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+Array [
+  <a
+    className=""
+    href="/sectors/Basic%20Materials"
+    onClick={[Function]}
+  >
+    <h1>
+      Basic Materials
+    </h1>
+    <span>
+      0.75157%
+    </span>
+  </a>,
+  ",",
+]
+`;
