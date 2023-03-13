@@ -8,7 +8,7 @@ function Router() {
     <>
       <Routes>
         <Route path="/" element={<SectorsRoute />} />
-        <Route path="companies" element={<CompaniesRoute />} />
+        <Route path="sectors/:sector" element={<CompaniesRoute />} />
         <Route path="company" element={<CompanyRoute />} />
       </Routes>
     </>
