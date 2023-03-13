@@ -10,8 +10,8 @@ it('renders correctly', () => {
       <MemoryRouter>
         <Provider store={store}>
           <Company symbol="BHP" />
-        </Provider>,
-      </MemoryRouter>
+        </Provider>
+      </MemoryRouter>,
     )
     .toJSON();
   expect(tree).toMatchSnapshot();

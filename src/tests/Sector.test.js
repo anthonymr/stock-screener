@@ -10,8 +10,8 @@ it('renders correctly', () => {
       <MemoryRouter>
         <Provider store={store}>
           <Sector sector="Basic Materials" change="0.75157%" />
-        </Provider>,
-      </MemoryRouter>
+        </Provider>
+      </MemoryRouter>,
     )
     .toJSON();
   expect(tree).toMatchSnapshot();
