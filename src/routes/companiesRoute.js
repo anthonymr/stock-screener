@@ -1,14 +1,12 @@
 import { useParams } from 'react-router-dom';
+import Companies from '../components/Companies';
 
 function CompaniesRoute() {
-  let { sector } = useParams();
-
-  sector = decodeURI(sector);
+  const { sector } = useParams();
 
   return (
     <section>
-      companies by
-      { sector }
+      <Companies sector={sector} />
     </section>
   );
 }
