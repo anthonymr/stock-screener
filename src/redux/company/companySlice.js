@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
-import { URL, APIKEY, COMPANYENDPOINT } from '../../key.js';
+import { URL, APIKEY, COMPANYENDPOINT } from '../../key';
 
 const initialState = {
   company: [],
