@@ -1,5 +1,6 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
+import { URL, APIKEY, COMPANIESENDPOINT } from '../../key';
 
 const initialState = {
   companies: [],
@@ -8,10 +9,8 @@ const initialState = {
 export const fetchCompanies = createAsyncThunk(
   'companies/getCompanies',
   async (sector) => {
-    const link = 'https://financialmodelingprep.com/api/v3/stock-screener?';
-    const key = '00f479b90863fc0a4b6b6dbedb775576';
-    const url = `${link}sector=${sector}&apikey=${key}`;
-    const response = await axios.get(url);
+    const link = `${URL}${COMPANIESENDPOINT}?sector=${sector}&apikey=${APIKEY}`;
+    const response = await axios.get(link);
     return response.data;
   },
 );

@@ -1,5 +1,6 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
+import { URL, APIKEY, SECTORSENDPOINT } from '../../key';
 
 const initialState = {
   sectors: [],
@@ -8,7 +9,8 @@ const initialState = {
 export const fetchSectors = createAsyncThunk(
   'sectors/fetchSectors',
   async () => {
-    const response = await axios.get('https://financialmodelingprep.com/api/v3/sectors-performance?apikey=00f479b90863fc0a4b6b6dbedb775576');
+    const link = `${URL}${SECTORSENDPOINT}?apikey=${APIKEY}`;
+    const response = await axios.get(link);
     return response.data;
   },
 );

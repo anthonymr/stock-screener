@@ -9,7 +9,7 @@ function Router() {
       <Routes>
         <Route path="/" element={<SectorsRoute />} />
         <Route path="sectors/:sector" element={<CompaniesRoute />} />
-        <Route path="company" element={<CompanyRoute />} />
+        <Route path="company/:company" element={<CompanyRoute />} />
       </Routes>
     </>
   );
