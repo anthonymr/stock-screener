@@ -1,3 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap');
+
+:root {
+  --pink-light: #fd5293;
+  --pink: #ed4d8b;
+  --pink-medium: #d1447a;
+  --pink-dark: #b13967;
+  --contrast: #fbd918;
+  --white: #fff8fc;
+  --black: #2b2827;
+}
+
 body {
   margin: 0;
   padding: 0;
