@@ -1,7 +1,12 @@
+import { useParams } from 'react-router-dom';
+import Company from '../components/Company';
+
 function CompanyRoute() {
+  const { company } = useParams();
+
   return (
     <section>
-      company details
+      <Company symbol={company} />
     </section>
   );
 }

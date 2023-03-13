@@ -1,7 +1,9 @@
+import Sectors from '../components/Sectors';
+
 function SectorsRoute() {
   return (
     <section>
-      sectors
+      <Sectors />
     </section>
   );
 }
