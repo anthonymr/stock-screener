@@ -15,8 +15,7 @@ function Sectors() {
     dispatch(fetchSectors());
   }, [dispatch]);
 
-  let className = 'is-light';
-  let isLight = true;
+  const isLight = [0, 3, 4, 7, 8];
 
   return (
     <section>
@@ -33,20 +32,9 @@ function Sectors() {
         <section className={style.sectorsContainer}>
           {
             sectors.map((sector, index) => {
-              if (index === 0) {
-                isLight = false;
-              } else if (index % 2 !== 0) {
-                if (!isLight) className = 'is-dark';
-                else if (isLight) className = 'is-light';
-              } else if (index % 2 === 0) {
-                if (!isLight) {
-                  className = 'is-dark';
-                  isLight = true;
-                } else if (isLight) {
-                  className = 'is-light';
-                  isLight = false;
-                }
-              }
+              const className = isLight.includes(index % 10)
+                ? 'is-light'
+                : 'is-dark';
 
               return (
                 <Sector
