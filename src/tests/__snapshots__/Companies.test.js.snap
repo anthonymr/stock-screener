@@ -55,7 +55,7 @@ exports[`renders correctly 1`] = `
     </div>
   </header>
   <div
-    className="header-container"
+    className="companiesHeaderContainer"
   >
     <div>
       Basic%20Materials
