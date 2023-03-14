@@ -37,6 +37,7 @@
     <li><a href="https://www.javascript.com/">JavaScript</a></li>
     <li><a href="https://reactjs.org/">React.js</a></li>
     <li><a href="https://redux-toolkit.js.org/">Redux toolkit</a></li>
+    <li><a href="https://site.financialmodelingprep.com/developer/docs/">Financial Modeling Prep API</a></li>
   </ul>
 </details>
 
@@ -141,6 +142,8 @@ If you like this project, please, share it with your friends.
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
 Especial thanks to Nelson [Nelson Sakwa on Behance](https://www.behance.net/sakwadesignstudio) for the original design idea.
+
+Thanks to [Financial Modeling Prep](https://site.financialmodelingprep.com/) for provide the API used in this project.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
