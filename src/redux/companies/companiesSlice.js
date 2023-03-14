@@ -4,6 +4,7 @@ import { URL, APIKEY, COMPANIESENDPOINT } from '../../key';
 
 const initialState = {
   companies: [],
+  filter: '',
 };
 
 export const fetchCompanies = createAsyncThunk(
@@ -19,6 +20,12 @@ const companiesSlice = createSlice({
   name: 'companies',
   initialState,
   reducers: {
+    setFilter: (state, { payload }) => (
+      {
+        ...state,
+        filter: payload,
+      }
+    ),
   },
   extraReducers: (builder) => {
     builder.addCase(fetchCompanies.pending, (state) => (
@@ -36,4 +43,5 @@ const companiesSlice = createSlice({
   },
 });
 
+export const { setFilter } = companiesSlice.actions;
 export default companiesSlice.reducer;
