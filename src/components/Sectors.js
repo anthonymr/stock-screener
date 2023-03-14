@@ -32,9 +32,17 @@ function Sectors() {
         <section className={style.sectorsContainer}>
           {
             sectors.map((sector, index) => {
-              const className = isLight.includes(index % 10)
-                ? 'is-light'
-                : 'is-dark';
+              let className = '';
+
+              if (index < 10 || (index / 10) % 2 === 0) {
+                className = isLight.includes(index % 10)
+                  ? 'is-light'
+                  : 'is-dark';
+              } else {
+                className = isLight.includes(index % 10)
+                  ? 'is-dark'
+                  : 'is-light';
+              }
 
               return (
                 <Sector

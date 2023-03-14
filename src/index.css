@@ -118,3 +118,66 @@ h3 {
 .is-dark {
   background-color: var(--pink-medium);
 }
+
+.company-container {
+  height: 150px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--pink-light);
+}
+
+.company-container > div:first-child {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+
+.company-container img {
+  width: 100%;
+}
+
+.company-container > div:last-child {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.company-title {
+  height: calc(100% - 50px);
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  padding-bottom: 0;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.company-changes {
+  width: 100%;
+  height: 50px;
+  text-align: right;
+  font-size: 18px;
+  opacity: 0.8;
+}
+
+.company-description {
+  padding: 20px;
+  background-color: var(--pink-medium);
+  font-size: 13px;
+  font-weight: 300;
+  margin: 0;
+}
+
+.company-info {
+  padding: 20px;
+  background-color: var(--pink-medium);
+}
