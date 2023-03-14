@@ -18,7 +18,7 @@
   opacity: 0.7;
 }
 
-.iconContainer>svg:last-child {
+.iconContainer > svg:last-child {
   color: var(--white);
   border: 2px solid var(--white);
   border-radius: 50%;

@@ -10,7 +10,8 @@
   --black: #2b2827;
 }
 
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
   font-family: 'Lato', sans-serif;
@@ -66,7 +67,7 @@ h3 {
   align-items: center;
 }
 
-.picture-container::after{
+.picture-container::after {
   display: block;
   content: '';
   width: 100%;
@@ -75,40 +76,17 @@ h3 {
   position: absolute;
   top: 0;
   left: 0;
-  background-image: linear-gradient(
-    90deg,
-    var(--black) 0%,
-    var(--pink-light) 100%
-  );
+  background-image:
+    linear-gradient(
+      90deg,
+      var(--black) 0%,
+      var(--pink-light) 100%
+    );
   opacity: 0.7;
 }
 
 .picture-container > img {
   width: 100%;
-}
-
-.header-container {
-  height: 150px;
-  overflow: hidden;
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: var(--pink-light);
-}
-
-.header-container > svg {
-  font-size: 110px;
-  width: calc(100% - 200px);
-  color: var(--pink-medium);
-}
-.header-container > div {
-  font-weight: 700;
-  font-size: 40px;
-  width: 200px;
-  text-align: right;
-  padding-right: 60px;
-  line-height: 35px;
 }
 
 .is-light {
@@ -119,65 +97,41 @@ h3 {
   background-color: var(--pink-medium);
 }
 
-.company-container {
-  height: 150px;
-  overflow: hidden;
+.loading {
+  font-size: 30px;
+  padding: 50px;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: var(--pink-light);
-}
-
-.company-container > div:first-child {
-  width: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 10px;
-}
-
-.company-container img {
-  width: 100%;
-}
-
-.company-container > div:last-child {
-  width: 50%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
-}
-
-.company-title {
-  height: calc(100% - 50px);
-  width: 100%;
-  display: flex;
-  justify-content: flex-end;
-  align-items: flex-end;
-  padding-bottom: 0;
-  font-size: 22px;
-  font-weight: 700;
-}
-
-.company-changes {
-  width: 100%;
   height: 50px;
-  text-align: right;
-  font-size: 18px;
-  opacity: 0.8;
+  gap: 20px;
+  line-height: 30px;
 }
 
-.company-description {
-  padding: 20px;
-  background-color: var(--pink-medium);
-  font-size: 13px;
-  font-weight: 300;
-  margin: 0;
+.loading > svg {
+  animation: spin infinite 5s linear;
 }
 
-.company-info {
-  padding: 20px;
-  background-color: var(--pink-medium);
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animated {
+  animation: appear 0.3s linear;
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }

@@ -3,7 +3,9 @@ import { useEffect } from 'react';
 import { PropTypes } from 'prop-types';
 import { NavLink } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faGear, faChevronLeft, faArrowRight } from '@fortawesome/free-solid-svg-icons';
+import {
+  faGear, faChevronLeft, faArrowRight, faSpinner,
+} from '@fortawesome/free-solid-svg-icons';
 import { fetchCompanies } from '../redux/companies/companiesSlice';
 import style from '../styles/Companies.module.css';
 import ICONS from '../assets/incons';
@@ -16,8 +18,32 @@ function Companies({ sector }) {
     dispatch(fetchCompanies(sector));
   }, [dispatch, sector]);
 
+  if (!companies.length) {
+    return (
+      <section className="animated">
+        <header>
+          <div>
+            <NavLink to="/">
+              <FontAwesomeIcon icon={faChevronLeft} />
+            </NavLink>
+          </div>
+          <div>Stock Screaner</div>
+          <div><FontAwesomeIcon icon={faGear} /></div>
+        </header>
+        <div className={style.companiesHeaderContainer}>
+          <FontAwesomeIcon icon={ICONS[sector]} />
+          <div>{sector}</div>
+        </div>
+        <div className="loading">
+          <span>Loading</span>
+          <FontAwesomeIcon icon={faSpinner} />
+        </div>
+      </section>
+    );
+  }
+
   return (
-    <section>
+    <section className="animated">
       <header>
         <div>
           <NavLink to="/">
@@ -27,7 +53,7 @@ function Companies({ sector }) {
         <div>Stock Screaner</div>
         <div><FontAwesomeIcon icon={faGear} /></div>
       </header>
-      <div className="header-container">
+      <div className={style.companiesHeaderContainer}>
         <FontAwesomeIcon icon={ICONS[sector]} />
         <div>{sector}</div>
       </div>
@@ -38,12 +64,11 @@ function Companies({ sector }) {
             const url = encodeURI(`/company/${company.symbol}`);
 
             return (
-              <NavLink to={url} key={company.symbol}>
+              <NavLink to={url} key={company.symbol} className="animated">
                 <div className={style.symbol}>{company.symbol}</div>
                 <div className={style.info}>
                   <div>{company.companyName}</div>
                   <div>{company.price}</div>
-                  <div>{company.beta}</div>
                 </div>
                 <div className={style.arrowRight}>
                   <FontAwesomeIcon icon={faArrowRight} />

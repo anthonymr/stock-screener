@@ -3,8 +3,9 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { PropTypes } from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faGear, faChevronLeft } from '@fortawesome/free-solid-svg-icons';
+import { faGear, faChevronLeft, faSpinner } from '@fortawesome/free-solid-svg-icons';
 import { fetchCompany } from '../redux/company/companySlice';
+import style from '../styles/Company.module.css';
 
 function Company({ symbol }) {
   const { company } = useSelector((state) => state.company);
@@ -16,8 +17,28 @@ function Company({ symbol }) {
 
   const url = encodeURI(`/sectors/${company.sector}`);
 
+  if (!Object.keys(company).length) {
+    return (
+      <section className="animated">
+        <header>
+          <div>
+            <NavLink to={url}>
+              <FontAwesomeIcon icon={faChevronLeft} />
+            </NavLink>
+          </div>
+          <div>Stock Screaner</div>
+          <div><FontAwesomeIcon icon={faGear} /></div>
+        </header>
+        <div className="loading">
+          <span>Loading</span>
+          <FontAwesomeIcon icon={faSpinner} />
+        </div>
+      </section>
+    );
+  }
+
   return (
-    <section>
+    <section className="animated">
       <header>
         <div>
           <NavLink to={url}>
@@ -28,27 +49,29 @@ function Company({ symbol }) {
         <div><FontAwesomeIcon icon={faGear} /></div>
       </header>
 
-      <div className="company-container">
-        <div>
-          <img src={company.image} alt={company.symbol} />
-        </div>
-        <div>
-          <div className="company-title">{company.symbol}</div>
-          <div className="company-changes">{company.changes}</div>
+      <div className={style.companyWrapper}>
+        <div className={style.companyContainer}>
+          <div>
+            <img src={company.image} alt={company.symbol} />
+          </div>
+          <div>
+            <div className={style.companyTitle}>{company.symbol}</div>
+            <div className={style.companyChanges}>{company.changes}</div>
+          </div>
         </div>
       </div>
       <h2>Company name</h2>
-      <div className="company-info">{company.companyName}</div>
+      <div className={style.companyInfo}>{company.companyName}</div>
       <h2>Stock price</h2>
-      <div className="company-info">{company.price}</div>
+      <div className={style.companyInfo}>{company.price}</div>
       <h2>Currency</h2>
-      <div className="company-info">{company.currency}</div>
+      <div className={style.companyInfo}>{company.currency}</div>
       <h2>Industry</h2>
-      <div className="company-info">{company.industry}</div>
+      <div className={style.companyInfo}>{company.industry}</div>
       <h2>Sector</h2>
-      <div className="company-info">{company.sector}</div>
+      <div className={style.companyInfo}>{company.sector}</div>
       <h2>Description</h2>
-      <p className="company-description">{company.description}</p>
+      <p className={style.companyDescription}>{company.description}</p>
     </section>
   );
 }

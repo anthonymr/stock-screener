@@ -18,7 +18,7 @@ function Sectors() {
   const isLight = [0, 3, 4, 7, 8];
 
   return (
-    <section>
+    <section className="animated">
       <header>
         <div />
         <div>Stock Screaner</div>
