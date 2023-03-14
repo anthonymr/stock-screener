@@ -71,3 +71,31 @@
   padding-right: 60px;
   line-height: 35px;
 }
+
+.companiesSearch {
+  height: 30px;
+  background-color: var(--pink-dark);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.companiesSearch > svg {
+  width: 20px;
+}
+
+.companiesSearch > input {
+  width: calc(100% - 120px);
+  height: 30px;
+  border: none;
+  margin: 0;
+  padding: 0 10px;
+}
+
+.companiesSearch > button {
+  width: 100px;
+  height: 30px;
+  color: var(--white);
+  background-color: transparent;
+  border: none;
+}

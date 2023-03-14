@@ -1,22 +1,31 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { PropTypes } from 'prop-types';
 import { NavLink } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
-  faGear, faChevronLeft, faArrowRight, faSpinner,
+  faGear, faChevronLeft, faArrowRight, faSpinner, faMagnifyingGlass,
 } from '@fortawesome/free-solid-svg-icons';
-import { fetchCompanies } from '../redux/companies/companiesSlice';
+import { fetchCompanies, setFilter } from '../redux/companies/companiesSlice';
 import style from '../styles/Companies.module.css';
 import ICONS from '../assets/incons';
 
 function Companies({ sector }) {
-  const { companies } = useSelector((state) => state.companies);
+  const { companies, filter } = useSelector((state) => state.companies);
   const dispatch = useDispatch();
+  const filterRef = useRef();
 
   useEffect(() => {
     dispatch(fetchCompanies(sector));
   }, [dispatch, sector]);
+
+  const setFilterField = (e) => {
+    if (e.key === 'Enter') dispatch(setFilter(e.target.value));
+  };
+
+  const setFilterFieldOnClick = () => {
+    dispatch(setFilter(filterRef.current.value));
+  };
 
   if (!companies.length) {
     return (
@@ -58,25 +67,33 @@ function Companies({ sector }) {
         <div>{sector}</div>
       </div>
 
+      <section className={style.companiesSearch}>
+        <FontAwesomeIcon icon={faMagnifyingGlass} />
+        <input ref={filterRef} type="text" placeholder="search" onKeyDown={setFilterField} />
+        <button type="button" onClick={setFilterFieldOnClick}>search</button>
+      </section>
+
       <section className={style.companiesContainer}>
         {
-          companies.map((company) => {
-            const url = encodeURI(`/company/${company.symbol}`);
+          companies
+            .filter((company) => company.companyName.toLowerCase().includes(filter.toLowerCase())
+              || company.symbol.toLowerCase().includes(filter.toLowerCase()))
+            .map((company) => {
+              const url = encodeURI(`/company/${company.symbol}`);
+              return (
+                <NavLink to={url} key={company.symbol} className="animated">
+                  <div className={style.symbol}>{company.symbol}</div>
+                  <div className={style.info}>
+                    <div>{company.companyName}</div>
+                    <div>{company.price}</div>
+                  </div>
+                  <div className={style.arrowRight}>
+                    <FontAwesomeIcon icon={faArrowRight} />
+                  </div>
 
-            return (
-              <NavLink to={url} key={company.symbol} className="animated">
-                <div className={style.symbol}>{company.symbol}</div>
-                <div className={style.info}>
-                  <div>{company.companyName}</div>
-                  <div>{company.price}</div>
-                </div>
-                <div className={style.arrowRight}>
-                  <FontAwesomeIcon icon={faArrowRight} />
-                </div>
-
-              </NavLink>
-            );
-          })
+                </NavLink>
+              );
+            })
         }
       </section>
     </section>
