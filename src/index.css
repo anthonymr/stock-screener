@@ -26,7 +26,12 @@ header {
 
 header > div:first-child,
 header > div:last-child {
-  width: 30px;
+  width: 50px;
+  text-align: center;
+}
+
+header a {
+  color: var(--white);
 }
 
 header > div:nth-child(2) {
@@ -80,6 +85,30 @@ h3 {
 
 .picture-container > img {
   width: 100%;
+}
+
+.header-container {
+  height: 150px;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--pink-light);
+}
+
+.header-container > svg {
+  font-size: 110px;
+  width: calc(100% - 200px);
+  color: var(--pink-medium);
+}
+.header-container > div {
+  font-weight: 700;
+  font-size: 40px;
+  width: 200px;
+  text-align: right;
+  padding-right: 60px;
+  line-height: 35px;
 }
 
 .is-light {
