@@ -21,9 +21,9 @@
 - [🙏 Acknowledgements](#acknowledgements)
 - [📝 License](#license)
 
-# 📖 Stock Screaner <a name="about-project"></a>
+# 📖 Stock Screener <a name="about-project"></a>
 
-**Stock Screaner** is a tool quickly find current stock prices in USA companies...
+**Stock Screener** is a tool quickly find current stock prices in USA companies...
 
 ## 🛠 Built With <a name="built-with"></a>
 
